@@ -1,5 +1,5 @@
 <?php
-	include("INT140.css");
+	include("INT140_style.css");
 ?>
 
 <?php
