@@ -1,14 +1,12 @@
 <?php
-	define("TITLE" , "Home Page");
+	define("TITLE" , "Contact page");
 	
 	include("includes/header.php");
 ?>
 
 <?php
-	include("includes/banner.php");
+	include("includes/main.php");
 ?>
-
-
 
 <?php
 	include("includes/footer.php");
