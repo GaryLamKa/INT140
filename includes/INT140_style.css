@@ -6,77 +6,197 @@
 	color: red;
 }
 
-.logo{
-	width:70px;
-	height:70px;
-	border:2px solid black;
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+/* My code start from here */
+
+*{
+	text-decoration: none;
+}
+
+body{
+	
+}
+
+#dis_code{
+	background-color:cornflowerblue; 
+	color: red;
+}
+
+header{
+	background-color:#fff;
+	width:100%;
+	height:100px;
+}
+
+header .Logo{
+	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+	font-size: 24px;
+	color: #111;
+	font-weight:900;
+	text-transform:uppercase;
+	display:block;
+	margin: 0 auto;
+	text-align:center;
+	padding: 20px 0 ;
+}
+
+header nav ul{
+	display:block;
+	margin: 0 auto;
+	width: fit-content;
+}
+
+header nav ul li{
+	display:inline-block;
 	float:left;
-	position: relative;
-	bottom: 20px;
-	left: 5px;
+	list-style:none;
+	padding: 0 16px;
 }
 
-.header_wrap{
-	background-color: purple;
-	width: 900px;
-	width: 100%;
-	height: 170px;
-	padding:0px 0px 5px 0px;
+header nav ul li a{
+	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+	font-size: 16px;
+	color: #111;
+	text-transform:uppercase;
 }
 
-.header_button{
-	width:70px;
-	height:70px;
-	border:2px solid black;
-	float: right;
-	margin: 1px;
-	position: relative;
-	bottom: 21px;
-	right: 5px;
+@media only screen and (min-width: 1000px) {
+	
+	header .Logo{
+	margin: 31px 0  ;
+	text-align:left;
+	line-height: 38px;
+	padding: 0 20px 0 40px;
+	border-right: 3px solid #111;
+	float:left;
+    }
+	
+	header nav ul{
+	margin: 20px 0px 0px 20px; 
+	float:left;
+	}
+
+header nav ul li{
+	display:inline-block;
+	float:left;
+	list-style:none;
+	padding: 0 16px;
+    }
+
+header nav ul li a{
+	line-height:60px;
+    }
+
 }
 
-#Category{
-	width:220px;
-	height:70px; 
-	border:2px solid black;
-	position: relative;
-	top: 55px;
-	left: 5px;
-}
 
-#search_bar{
-	width: 400px;
-	height: 70px;
-	border:2px solid red;
-	position: relative;
-	left: 230px;
-	bottom:19px;
-}
-
-#search_button{
-	width: 70px;
-	height: 70px;
-	border: 2px solid black;
-	position: relative;
-	left: 635px;
-	bottom:93px;
-}
-
-#user_setting{
-	width:146px;
-	height: 70px;
-	border: 2px solid black;
-	float: right;
-	position: relative;
-	bottom: 167px;
-	right: 6px;
-}
 /*---------------------------banner------------------------*/
 .banner_wrap{
 	background-color: blueviolet;
 	width: 900px;
 	width: 100%;
-	height: 200px;
+	height: 600px;
 }
 
 @keyframes slideshow {
@@ -164,32 +284,55 @@
 
 /*-------------------------Footer------------------------*/
 
-.footer_wrap{
-	width: 100%;
-	height: 300px;
-	background-color: aqua;
-	padding: 15px 0px;
+footer{
+	width:calc( 100% - 80px);
+	padding: 40px 40px;
+	margin-top: 20px;
+	background-color: #111;
+	overflow:hidden;
 }
 
-#delivery_p{
-	color: red;
-	position: relative;
-	left: 10px;
+
+footer ul{
+	width: fit-content;
+	float: left;
+	padding-left: 20px;
 }
 
-#parent_companies{
-	width: 800px;
-	height: 100px;
-	border: 2px solid black;
-	position: relative;
-	left:10px;
+footer ul li{
+	display:block;
+	list-style:none;
 }
 
-.footer_link{
-	list-style-type: none;
+footer ul li a{
+	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+	font-size: 24px;
+	color: #fff;
+	line-height: 40px;
 }
 
-.footer_link a{
-	text-decoration: none; 
-	color: black;
+.footer-links-cases{
+	display:none;
+}
+
+
+
+
+@media only screen and (min-width: 1000px) {
+	.footer-links-cases{
+	display:block;
+    }
+	
+	footer ul li p{
+	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+	font-size: 24px;
+	color: #fff;
+	line-height: 40px;
+	text-transform:uppercase;
+    }
+	
+	footer ul{
+	padding-right: 30px;
+    }
+
 }

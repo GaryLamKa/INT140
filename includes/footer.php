@@ -1,22 +1,27 @@
-	<footer>
-		<div class="footer_wrap">
-			<h3 id="delivery_p">123123123123</h3>
-		
-			<div id="parent_companies">
-				<img src="#" alt="Parent Companies">
-			</div>
-		
-			<ul class="footer_link">
-				<li><a href="#" alt="Home Page">Home</a> </li>
-				<li><a href="#" alt="Category Page">Category List</a> </li>
-				<li><a href="#" alt="Cart Page">Cart</a> </li>
-				<li><a href="#" alt="User Setting Page">User Setting</a> </li>
-				<li><a href="#" alt="Contact Page">Contact</a> </li>
-			</ul>
-			
-			<h3> &copy<?php echo date("Y"); ?> </h3>
-			
-		</div>
-	</footer>
+
+   <div class="wrapper">
+
+    <footer>
+  
+       <ul class="footer-links-main">
+          <li><a href="Index.php">Home</a></li>
+          <li><a href="shop.php">Shop</a></li> 
+          <li><a href="contact_page.php">About Us</a></li> 
+       </ul>
+     
+       <ul class="footer-links-cases">
+          <li><p>The Shop</p></li>
+          <br> 
+          <li><p>(01) 2345 6789</p></li>
+          <li><p>Gary Lam</p></li>
+          <li><p>Thanks for visit our site</p></li>
+          <li><p>See you again</p></li> 
+       </ul>   
+      
+       
+    </footer>
+   </div> 
+  
 </body>
+
 </html>

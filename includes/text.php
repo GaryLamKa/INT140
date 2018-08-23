@@ -1,4 +1,6 @@
 <?php
+	ini_set("display_errors", "1");
+
 	$items = array
 	(
 		array("nothing", 0, 0, 0),
@@ -8,11 +10,12 @@
 		array("MP3", 100, 15, 20)
 	);
 	
+	
 	for ($row = 1; $row < 5; $row++) {
 			echo "<p><strong>On sale items $row</strong></p>";
 			echo "<ul>";
 		for ($col = 0; $col < 3; $col++){
-			echo "<li>".$items[$row][$col]."</li>";
+			echo $items[$row][$col]."<br>";
 			}
 			echo "</ul>";
 		}
@@ -31,3 +34,36 @@
 	$item = array("000"=>"HKD", "001"=>"USD", "002"=>"AUD");
 	echo "Your currency is " .$item["001"]. "!";
 ?>
+
+<?php
+
+
+
+	$products = array
+	(
+		$name = array("iphone4", "iphone5", "iphone6", "iphone3000"),
+		$price = array(100, 200, 300, 400),
+		$image = array("img/iphone4.png","img/iphone5.jpg","img/iphone 6.jpg","img/iphone 3000.png")
+	);
+	
+	if(!empty($products))
+	{
+		foreach($products as $key=>$value)
+		{	
+?>
+		<div classs= "product-item">
+				<div class="product-image">
+					<img src="<?php echo $products[$key]["$image"];?>">
+				</div>
+			<div>
+				<strong><?php echo $products[$key][$name]; ?></strong>
+			</div>
+			<div class="product-price"><?php echo "$" . $products[$key][$price];?></div>
+			<div><input type="text" name="quantity" value="1" size="2" /><input type="submit" value="Add to cart" class="btnAddAction" /></div>
+		</div>
+		
+<?php
+		}
+	}
+?>
+
