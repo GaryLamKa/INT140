@@ -1,20 +1,47 @@
 <?php
-	define("TITLE", "Checkout Page");
+	define("TITLE" , "Cart");
+	ini_set("display_errors", "1");
 ?>
 
-<!DOCTYPE HTML>  
-<html>
-<head>
-<title><?php echo TITLE; ?> </title>
-<style>
-.error {color: #FF0000;}
-</style>
-</head>
-<body>  
+<?php
+	include("includes/header.php");	
+?>
+<?php
+	$discountCode = "1234567890";
+
+	$productsPrice = array(200,300,400,900);
+	
+	if (isset($_GET["ItemName1"]) && ($_GET["Qty1"] >= 1)){
+	echo $_GET["ItemName1"]. "  Quantity: " .$_GET["Qty1"]. "<br>";
+	};
+	if (isset($_GET["ItemName2"]) && ($_GET["Qty2"] >= 1)){
+	echo $_GET["ItemName2"]. "  Quantity: " .$_GET["Qty2"]. "<br>";
+	};
+	if (isset($_GET["ItemName3"]) && ($_GET["Qty3"] >= 1)){
+	echo $_GET["ItemName3"]. "  Quantity: " .$_GET["Qty3"]. "<br>";
+	};
+	if (isset($_GET["ItemName4"]) && ($_GET["Qty4"] >= 1)){
+	echo $_GET["ItemName4"]. "  Quantity: " .$_GET["Qty4"]. "<br>";
+	};
+
+	
+	$CartEmpty = "Cart is empty!";
+	
+	if (($_GET["Qty1"] >= 1) ||($_GET["Qty2"] >= 1) ||($_GET["Qty3"] >= 1) ||($_GET["Qty4"] >= 1)){
+	$total = $productsPrice[0] * $_GET["Qty1"] +  $productsPrice[1] * $_GET["Qty2"] + $productsPrice[2] * $_GET["Qty3"] + $productsPrice[3] * $_GET["Qty4"];
+	};
+	
+	if (isset($_GET["ItemName1"]) && ($_GET["Qty1"] >= 1) ||  isset($_GET["ItemName2"])&& ($_GET["Qty2"] >= 1) ||  isset($_GET["ItemName3"]) && ($_GET["Qty3"] >= 1) ||  isset($_GET["ItemName4"])&& ($_GET["Qty4"] >= 1)){
+	echo "The total prices is:  ". $total;
+	}else{
+	echo $CartEmpty;
+	};
+	
+?>
 
 <?php
-$nameErr = $emailErr = $cardErr = $addressErr = $cardNum = "";
-$name = $email = $card = $detail = $address = $cardNumErr = "";
+$nameErr = $emailErr = $cardErr = $addressErr = $cardNumErr = "";
+$name = $email = $card = $detail = $address = $cardNum = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["name"])) {
@@ -91,15 +118,17 @@ function test_input($data) {
   Detail for shipping: <textarea name="detail" rows="5" cols="40" placeholder="e.g: Second floor room 2.4"><?php echo $detail;?></textarea>
   <br><br>
   Card:
-  <input type="radio" name="card" <?php if (isset($card) && $card=="visa") echo "checked";?> value="visa"> VISA
-  <input type="radio" name="card" <?php if (isset($card) && $card=="mastercard") echo "checked";?> value="mastercard"> MasterCard
-  <input type="radio" name="card" <?php if (isset($card) && $card=="americanex") echo "checked";?> value="americanEx"> AmericanExpress  
+  <input type="radio" name="card" <?php if (isset($card) && $card=="visa") echo "checked";?> value="visa">VISA
+  <input type="radio" name="card" <?php if (isset($card) && $card=="mastercard") echo "checked";?> value="mastercard">MasterCard
+  <input type="radio" name="card" <?php if (isset($card) && $card=="americanex") echo "checked";?> value="americanEx">AmericanExpress  
   <span class="error">* <?php echo $cardErr;?></span>
   <br><br>
   Card Number:<input type="text" name="cardNum" placeholder="xxxx-xxxx-xxxx-xxxx" value="<?php echo $cardNum;?>">
   <span class="error">* <?php echo $cardNumErr;?></span>
   <br><br>  
-  <input type="submit" name="submit" value="Submit">  
+  Discount Code: <input type="text" placeholder="10 digits number" value="<?php echo $NewDiscount;?>" >
+  <br><br>
+  <input type="submit" name="submit" value="Comfirm Information">  
 </form>
 
 <?php
@@ -114,14 +143,46 @@ echo $detail;
 echo "<br>";
 echo $card;
 echo $cardNum;
-echo "<br>"
+echo "<br>";
+echo $total;
+
+
 ?>
 
 <form method="post" action="comfirm.php">
-	<input type="submit" name="comfirm" vlaue="comfirm">
+	<input type="submit" name="comfirm" value="Comfirm to send order">
 </form>
 
 
 
-</body>
-</html>
+
+<?php
+	include("includes/footer.php");
+?>
+
+---------------------------
+<?php
+echo "<h2>Your Information:</h2>";
+echo $name;
+echo "<br>";
+echo $email;
+echo "<br>";
+echo $address;
+echo "<br>";
+echo $detail;
+echo "<br>";
+echo $card;
+echo $cardNum;
+echo "<br>";
+echo $total;
+
+
+?>
+
+<form method="post" action="comfirm.php">
+	<input type="submit" name="comfirm" value="Comfirm to send order">
+</form>
+
+
+<input type="submit" name="submit" value="Submit"> 
+</form>

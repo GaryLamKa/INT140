@@ -1,74 +1,65 @@
 <?php
 	define("TITLE", "Shop Page");
+	error_reporting(E_ALL);
+	ini_set("display_errors", "1");
 ?>
 
 <?php
 	include("includes/header.php");
 ?>
 
-<?php
 
-	$photo =array("img/iphone4.png","img/iphone5.jpg","img/iphone 6.jpg","img/iphone 3000.png");
 
-	$items = array
-	(
-		array("nothing", 0, 0, 0),
-		array("Phone4", 200, 10, 8),
-		array("iPhone5", 300, 5, 11),
-		array("iPhone6", 550, 20, 3),
-		array("iPhone3000", 1000, 15, 20)
-	);
-	
-	
-		for ($row = 1; $row < 5; $row++) {
-			echo "<p><strong>On sale items $row</strong></p>";
-			echo "<ul>";
-			
-		for($i=0; $i<count($photo); $i++) {
-			echo '<img src="'.$photo[$i].'">';
-			}
-			
-		for ($col = 0; $col < 3; $col++){
-			echo $items[$row][$col]."<br>";
-			}
-			echo "</ul>";
-		}
-	
-	
-	
-	
-	for ($row = 1; $row < 5; $row++) {
-			echo "<p><strong>On sale items $row</strong></p>";
-			echo "<ul>";
-		for ($col = 0; $col < 3; $col++){
-			echo $items[$row][$col]."<br>";
-			}
-			echo "</ul>";
-		}
-?>
 
 <?php
+	$Qty = "";
 
-	for($i=0; $i<count($photo); $i++) {
-	echo '<img src="'.$photo[$i].'">';
-	}
-	
-	echo "<br>";
-	
-	echo '<img src="'.$photo[0].'">' .$items[1][0]. " prices: ".$items[1][1].", In stock:".$items[1][2].", sold: ".$items[1][3].".<br>";
-	echo '<img src="'.$photo[1].'">' .$items[2][0]. " prices: ".$items[2][1].", In stock:".$items[2][2].", sold: ".$items[2][3].".<br>";
-	echo '<img src="'.$photo[2].'">' .$items[3][0]. " prices: ".$items[3][1].", In stock:".$items[3][2].", sold: ".$items[3][3].".<br>";
-	echo '<img src="'.$photo[3].'">' .$items[4][0]. " prices: ".$items[4][1].", In stock:".$items[4][2].", sold: ".$items[4][3].".<br>";
+	$productsImage = array("img/iphone4.png","img/iphone5.jpg","img/iphone 6.jpg","img/iphone 3000.png");
+						
+	$productsName = array("Iphone4","Iphone5","Iphone6","Iphone3000");
+						 
+	$productsPrice = array(200,300,400,900);
 ?>
+<div class="shopShowCase">
+	<div class="shopBox">
+<form method="get" action="cart.php" >
+<?php echo '<img src="'.$productsImage[0].'">'  ?>
+<br><br>
+<input type="radio" name="ItemName1" value="<?php echo $productsName[0] ?>"> <?php echo $productsName[0] ?> 
+<h4>Price: <?php echo $productsPrice[0] ?>$ </h4> <br>
+Quantity: <input type="text" name="Qty1" placeholder="0" value="<?php echo $Qty ?>"><br><br>
+	</div>
 
-<br>
+	<div class="shopBox">
+<?php echo '<img src="'.$productsImage[1].'">'  ?>
+<br><br>
+<input type="radio" name="ItemName2" value="<?php echo $productsName[1] ?>"> <?php echo $productsName[1] ?> 
+<h4>Price: <?php echo $productsPrice[1] ?>$ </h4> <br>
+Quantity: <input type="text" name="Qty2" placeholder="0" value="<?php echo $Qty ?>"><br><br>
+	</div>
 
-<?php
-	$item = array("000"=>"HKD", "001"=>"USD", "002"=>"AUD");
-	echo "The currency is " .$item["001"]. "!";
-?>
+	<div class="shopBox">
+<?php echo '<img src="'.$productsImage[2].'">'  ?>
+<br><br>
+<input type="radio" name="ItemName3" value="<?php echo $productsName[2] ?>"> <?php echo $productsName[2] ?> 
+<h4>Price: <?php echo $productsPrice[2] ?>$ </h4> <br>
+Quantity: <input type="text" name="Qty3" placeholder="0" value="<?php echo $Qty ?>"><br><br>
+	</div>
+
+	<div class="shopBox">
+<?php echo '<img src="'.$productsImage[3].'">'  ?>
+<br><br>
+<input type="radio" name="ItemName4" value="<?php echo $productsName[3] ?> " > <?php echo $productsName[3] ?> 
+<h4>Price: <?php echo $productsPrice[3] ?>$ </h4> <br>
+Quantity: <input type="text" name="Qty4" placeholder="0" value="<?php echo $Qty ?>"><br><br>
+	</div>
 
 
+<input type="submit" name="submit" value="Add To Cart"> 
+</form>
+
+</div>
 <?php
 	include("includes/footer.php");
 ?>
+
